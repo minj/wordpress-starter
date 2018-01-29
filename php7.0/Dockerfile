@@ -39,9 +39,9 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
     } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 # Install wp-cli, configure apache, add scripts, create install directory & symlink
+COPY run.sh /
 RUN curl -s \
         -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
-        -o /run.sh https://raw.githubusercontent.com/visiblevc/wordpress-starter/master/run.sh \
     && chmod +x /usr/local/bin/wp /run.sh \
     && curl -s \
         https://raw.githubusercontent.com/wp-cli/wp-cli/master/utils/wp-completion.bash | \
